@@ -10,4 +10,6 @@
 	</author>
 
 	<preference name="phonegap-version" value="cli-6.0.0" />
+
+	<icon src="icon.png" /> <!-- Define o caminho o ícone padrão 'global' com 128px X 128px, o caminho é em relação à pasta www -->
 </widget>
