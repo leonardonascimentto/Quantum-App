@@ -19,7 +19,7 @@ function signout() {
     session.set("codUsuario", '');
     session.set("nomeUsuario", '');
     session.set("perfilUsuario", '')
-    location.href = '/index.html';
+    location.href = '../index.html';
 }
 
 function redirect(pagina, name, value) {
