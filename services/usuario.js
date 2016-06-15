@@ -2,7 +2,7 @@
 	usuarioService.insert = function(usuarioData, success, error) {
 		$('#loader').show();
 		$.ajax({            //Função AJAX
-            url: configuracoes.baseURL + "Entities/UsuariosInserir.asp",          //Arquivo asp
+            url: configuracoes.baseURL + "entities/UsuariosInserir.asp",          //Arquivo asp
             type:"get",                //Método de envio
             data: "nome="+usuarioData.nome+"&email="+usuarioData.email+"&password="+usuarioData.password+"&codUsuario="+usuarioData.codUsuario+"&codPerfil="+usuarioData.codPerfil,   //Dados
             success: success,
@@ -16,7 +16,7 @@
 	usuarioService.delete = function(usuarioData, success, error) {
 		$('#loader').show();
 		$.ajax({            //Função AJAX
-            url:configuracoes.baseURL + "Entities/UsuariosDelete.asp",          //Arquivo asp
+            url:configuracoes.baseURL + "entities/UsuariosDelete.asp",          //Arquivo asp
             type:"get",                //Método de envio
             data: "codUsuario="+usuarioData.codUsuario,   //Dados
             success: success,
@@ -28,7 +28,7 @@
 	};
 	usuarioService.getPerfis = function(success, error) {		
 		$.ajax({
-			url:configuracoes.baseURL + "Entities/Perfil.asp",          //Arquivo asp
+			url:configuracoes.baseURL + "entities/Perfil.asp",          //Arquivo asp
             type:"get",                //Método de envio
             data: "",   //Dados
             success: success,
@@ -39,7 +39,7 @@
 	usuarioService.sendFoto = function(foto, success, error) {
 		$('#loader').show();
 		$.ajax({            //Função AJAX
-            url:configuracoes.baseURL + "Entities/FotoInserir.asp",          //Arquivo asp
+            url:configuracoes.baseURL + "entities/FotoInserir.asp",          //Arquivo asp
             type:"post",                //Método de envio
             data: {foto:foto,codUsuario:session.get("codUsuario")},   //Dados
             success: success,
@@ -53,7 +53,7 @@
 	usuarioService.enviarEmailEsqueciSenha = function(strTo, success, error) {
 		$('#loader').show();
 		$.ajax({
-            url:configuracoes.baseURL + "Entities/EnviaEmail.asp",
+            url:configuracoes.baseURL + "entities/EnviaEmail.asp",
             type:"get", 
             data: "strTo=" + strTo,
             success: success,
@@ -67,7 +67,7 @@
 	usuarioService.getAll = function(success, error) {
 		
 		$.ajax({
-            url:configuracoes.baseURL + "Entities/Usuarios.asp",
+            url:configuracoes.baseURL + "entities/Usuarios.asp",
             type:"get", 
             data: "",
             success: success,

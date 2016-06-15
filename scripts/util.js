@@ -19,7 +19,7 @@ function signout() {
     session.set("codUsuario", '');
     session.set("nomeUsuario", '');
     session.set("perfilUsuario", '')
-    location.href = '/Index.html';
+    location.href = '/index.html';
 }
 
 function redirect(pagina, name, value) {
@@ -37,7 +37,7 @@ function carregaDadosUsuario() {
     perfilUsuario = session.get("perfilUsuario");
 
     if (codUsuario == '' || codUsuario == null || codUsuario === undefined || codUsuario == 'null') {
-        location.href = '../Index.html';
+        location.href = '../index.html';
     }
 
     var carrega = function (u) {
@@ -84,6 +84,6 @@ function dataBr() {
 }
 
 $(function(){
-	$('.avatar .img-circle').attr('onError', "this.src = '../Images/profile.jpg'");
+	$('.avatar .img-circle').attr('onError', "this.src = '../images/profile.jpg'");
 	$('.avatar .img-circle').attr('src',configuracoes.baseURL + 'imagens/fotos/u' + session.get('codUsuario') + '.png');
 })

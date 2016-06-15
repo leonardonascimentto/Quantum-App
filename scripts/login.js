@@ -4,7 +4,7 @@ $(document).ready(function () {
         var email = $('#email').val();  //Pega valor do campo email
         var password = $('#password').val();    //Pega valor do campo senha
         $.ajax({            //Função AJAX
-            url: configuracoes.baseURL + "entities/login.asp",  //Arquivo asp
+            url: configuracoes.baseURL + "entities/Login.asp",  //Arquivo asp
             type: "post",   //Método de envio
             data: "email=" + email + "&password=" + password,   //Dados
             success: function (Usuarios) {  //Sucesso no AJAX

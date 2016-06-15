@@ -38,7 +38,7 @@ function inserirTicket() {
     return false;
 }
 var srcPadrao = configuracoes.baseURL + "imagens/fotos/u#cod#.png";
-var cloneLi = $('<li><div class="date"><span><img class="img-circle fotoAluno" src="" width="44" height="45" onerror="this.src=\'../Images/profile.jpg\'"></img></span></div><h4 class="comentarioNomeUsuario"></h4><h5 class="data"></h5><p class="comentario"></p></li>');
+var cloneLi = $('<li><div class="date"><span><img class="img-circle fotoAluno" src="" width="44" height="45" onerror="this.src=\'../images/profile.jpg\'"></img></span></div><h4 class="comentarioNomeUsuario"></h4><h5 class="data"></h5><p class="comentario"></p></li>');
 function inserirComentario() {
 	var comentarioData = {
 		codTicket: session.get('codTicket'),

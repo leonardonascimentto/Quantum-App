@@ -2,7 +2,7 @@ var ticketService = {};
 ticketService.insert = function (ticketData, success) {
     $('#loader').show();
     $.ajax({            //Função AJAX
-        url: configuracoes.baseURL + "Entities/TicketsInserir.asp",          //Arquivo asp
+        url: configuracoes.baseURL + "entities/TicketsInserir.asp",          //Arquivo asp
         type: "get",                //Método de envio
         data: "categoria=" + ticketData.categoria + "&assunto=" + ticketData.assunto + "&descricao=" 
 		+ ticketData.descricao + "&codUsuarioCriador=" + ticketData.codUsuarioCriador + "&codUsuario=" + ticketData.codUsuario,   //Dados
@@ -16,7 +16,7 @@ ticketService.insert = function (ticketData, success) {
 ticketService.delete = function (ticketData, success) {
     $('#loader').show();
     $.ajax({            //Função AJAX
-        url: configuracoes.baseURL + "Entities/TicketsDelete.asp",          //Arquivo asp
+        url: configuracoes.baseURL + "entities/TicketsDelete.asp",          //Arquivo asp
         type: "get",                //Método de envio
         data: "codTicket=" + ticketData.codTicket,   //Dados
         success: success,
@@ -28,7 +28,7 @@ ticketService.delete = function (ticketData, success) {
 ticketService.insertComentario = function (comentarioData, success) {
     $('#loader').show();
     $.ajax({            //Função AJAX
-        url: configuracoes.baseURL + "Entities/TicketsInserirComentario.asp",          //Arquivo asp
+        url: configuracoes.baseURL + "entities/TicketsInserirComentario.asp",          //Arquivo asp
         type: "get",                //Método de envio
         data: "codTicket=" + comentarioData.codTicket + "&codUsuario=" + comentarioData.codUsuario + "&Acompanhamento=" + comentarioData.Acompanhamento,   //Dados
         success: success,
@@ -41,7 +41,7 @@ ticketService.insertComentario = function (comentarioData, success) {
 ticketService.getComentarios = function (codTicket, success) {
     $('#loader').show();
     $.ajax({            //Função AJAX
-        url: configuracoes.baseURL + "Entities/TicketAcompanhamento.asp",          //Arquivo asp
+        url: configuracoes.baseURL + "entities/TicketAcompanhamento.asp",          //Arquivo asp
         type: "get",                //Método de envio
         data: "codTicket=" + codTicket ,   //Dados
         success: success,
@@ -53,7 +53,7 @@ ticketService.getComentarios = function (codTicket, success) {
 
 ticketService.getAgrupados = function (codUsuario, success) {
     $.ajax({            //Função AJAX
-        url: configuracoes.baseURL + "Entities/TicketsAgrupadosPorStatus.asp",          //Arquivo asp
+        url: configuracoes.baseURL + "entities/TicketsAgrupadosPorStatus.asp",          //Arquivo asp
         type: "get",                //Método de envio
         data: "codUsuario=" + codUsuario,   //Dados
         success: success
@@ -64,7 +64,7 @@ ticketService.getTickets = function(success) {
 	
 	$('#loader').show();
     $.ajax({            //Função AJAX
-        url: configuracoes.baseURL + "entities/ticket.asp",          //Arquivo asp
+        url: configuracoes.baseURL + "entities/Ticket.asp",          //Arquivo asp
         type: "get",                //Método de envio
         data: "codUsuario=" + session.get("codUsuario"),   //Dados
         success: success,

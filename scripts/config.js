@@ -1,3 +1,3 @@
 var configuracoes = {
-	baseURL : 'http://www.gerio.com.br/'
+    baseURL: 'http://www.quantumapp.com.br/'
 };
