@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Nova Conta | Quantum</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+    <link href="../content/css.css" rel="stylesheet" />
+
+    <script src="../bundles/modernizr.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+     <script src="../bundles/ie.js"></script>
+
+     <![endif]-->
+
+
+</head>
+<body>
+    <section class="container animated fadeInUp">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div id="login-wrapper">
+                    <header>
+                        <div class="brand">
+                            <a href="Home.html" class="logo">
+                                <img src="../Images/logo.png">
+                                <span>Q</span>uantum
+                            </a>
+                        </div>
+                    </header>
+                    <div id="erro" class="alert alert-danger alert-dismissable">
+                        <strong>Atenção!</strong> Preencha os dados corretamente.
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Nova Conta
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <p>Já possui uma conta? <a href="../Index.html"><strong>Entrar</strong></a></p>
+                            <form id="form" name="form" role="form" method="post">
+                                <div class="form-group">
+                                    <label for="nome">Nome</label>
+                                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Senha</label>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Digite uma senha">
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmapassword">Confirmar Senha</label>
+                                    <input type="password" class="form-control" id="confirmapassword" name="confirmapassword" placeholder="Repita a senha">
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-block">Criar Conta</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	<script src="../scripts/config.js"></script>	
+
+    <script src="../bundles/jquery.js"></script>
+
+    <script src="../bundles/bootstrap.js"></script>
+
+    <script src="../plugins/navgoco.js"></script>
+
+    <script src="../plugins/pace.js"></script>
+
+    <script src="../bundles/app.js"></script>
+
+    <script src="../plugins/validate.js"></script>
+
+    <script src="../services/usuario.js"></script>
+
+    <script src="../cordova.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#form').validate({
+                rules: {
+                    nome: {
+                        required: true
+                    },
+                    email: {
+                        required: true,
+                        email: true,
+                        remote: configuracoes.baseURL + 'verificar_email.asp'
+                    },
+                    password: {
+                        required: true,
+                        minlength: 4,
+                        maxlength: 15
+
+                    },
+                    confirmapassword: {
+                        required: true,
+                        minlength: 4,
+                        maxlength: 15,
+                        equalTo: '#password'
+                    }
+                },
+                messages: {
+                    nome: {
+                        required: "Digite seu nome"
+                    },
+                    email: {
+                        required: "Digite seu email",
+                        email: "O campo \"Email\" deve conter um email válido",
+                        remote: "O email informado já está em uso. Escolha outro email"
+                    },
+                    password: {
+                        required: "Digite uma senha",
+                        minlength: "A senha deve conter, no mínimo, 4 caracteres",
+                        maxlength: "A senha pode ter, no máximo, 15 caracteres"
+                    },
+                    confirmapassword: {
+                        required: "Repita a senha",
+                        minlength: "A confirmação da senha deve conter, no mínimo, 4 caracteres",
+                        maxlength: "A confirmação da senha pode ter, no máximo, 15 caracteres",
+                        equalTo: "O campo \"Confirmar Senha\" deve ser igual ao campo \"Senha\"!"
+                    }
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $('#erro').hide(); //Esconde o elemento com id erro
+            $('#form').submit(function () {   //Ao submeter formulário
+                var nome = $('#nome').val();    //Pega valor do campo nome
+                var email = $('#email').val();  //Pega valor do campo email
+                var password = $('#password').val();  //Pega valor do campo senha
+
+                var usuarioData = { nome: nome, email: email, password: password };
+                var success = function (result) {         //Sucesso no AJAX
+                    if (result != '0') {
+                        location.href = '../index.html'  //Redireciona
+                    } else {
+                        $('#erro').show();      //Informa o erro
+                    }
+                };
+
+                usuarioService.insert(usuarioData, success);
+                return false;   //Evita que a página seja atualizada
+            })
+        })
+    </script>
+
+</body>
+
+</html>

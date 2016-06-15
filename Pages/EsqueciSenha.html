@@ -11,21 +11,22 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Acesso | Quantum</title>
+    <title>Esqueci a Senha | Quantum</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
-    <link href="content/css.css" rel="stylesheet" />
+    <link href="../content/css.css" rel="stylesheet" />
 
-    <script src="bundles/modernizr.js"></script>
-
+    <script src="../bundles/modernizr.js"></script>
+	
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-     <script src="bundles/ie.js"></script>
+     <script src="../bundles/ie.js"></script>
 
      <![endif]-->
+
 
 </head>
 <body>
@@ -35,47 +36,39 @@
                 <div id="login-wrapper">
                     <header>
                         <div class="brand">
-                            <a href="home.html" class="logo">
-                                <img src="Images/logo.png">
+                            <a href="Home.html" class="logo">
+                                <img src="../Images/logo.png">
                                 <span>Q</span>uantum
                             </a>
                         </div>
                     </header>
-                    <div id="erro" class="alert alert-danger alert-dismissable">
-                        <strong>Atenção!</strong> Email ou senha inválidos.
+                    <div id="sucesso" class="alert alert-success alert-dismissable" style="display: none">
+                        Sua senha foi enviada para o seu email.
                     </div>
-                    <div class="fb-like"
-                         data-share="true"
-                         data-width="450"
-                         data-show-faces="true">
+                    <div id="erro" class="alert alert-danger alert-dismissable" style="display: none">>
+                        <strong>Atenção!</strong> Email não encontrado.
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title">
-                                Acesso
+                                Esqueci a Senha
                             </h3>
                         </div>
                         <div class="panel-body">
-                            <p> Entre com os dados da sua conta.</p>
+                            <p> Informe o e-mail para receber as instruções de como criar uma nova senha.</p>
                             <form id="form" name="form" class="form-horizontal" role="form">
                                 <div class="form-group">
                                     <div class="col-md-12">
                                         <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                                        <i class="fa fa-user"></i>
+                                        <i class="fa fa-envelope"></i>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-12">
-                                        <input type="password" class="form-control" id="password" name="password" placeholder="Senha">
-                                        <i class="fa fa-lock"></i>
-                                        <a href="Pages/EsqueciSenha.html" class="help-block">Esqueceu sua senha?</a>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-md-12">
-                                        <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                                        <button type="button" onclick="enviarEmail(); return false;" class="btn btn-primary btn-block">Enviar Email</button>
                                         <hr />
-                                        <!--<a href="Pages/Cadastro.html" class="btn btn-default btn-block">Não tem conta?</a>-->
+                                        <a href="../Index.html" class="btn btn-default btn-block">Já possui uma conta?</a>
+                                        <a href="Cadastro.html" class="btn btn-default btn-block">Não tem conta?</a>
                                     </div>
                                 </div>
                             </form>
@@ -85,22 +78,22 @@
             </div>
         </div>
     </section>
-	<script src="scripts/config.js"></script>
 	
-    <script src="bundles/jquery.js"></script>
+	<script src="../scripts/config.js"></script>
+	
+    <script src="../bundles/jquery.js"></script>
 
-    <script src="bundles/bootstrap.js"></script>
+    <script src="../bundles/bootstrap.js"></script>
 
-    <script src="plugins/navgoco.js"></script>
+    <script src="../plugins/navgoco.js"></script>
 
-    <script src="plugins/pace.js"></script>
+    <script src="../plugins/pace.js"></script>
 
-    <script src="bundles/app.js"></script>
+    <script src="../bundles/app.js"></script>
 
+    <script src="../services/usuario.js"></script>
 
-    <script src="scripts/login.js"></script>
-
-    <script src="scripts/util.js"></script>
+    <script src="../scripts/esqueciSenha.js"></script>
 
 </body>
 

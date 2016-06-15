@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html>
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início | Quantum</title>
+
+    <link href="../plugins/daterangepickerCSS.css" rel="stylesheet" />
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+    <link href="../content/css.css" rel="stylesheet" />
+
+    <script src="../bundles/modernizr.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+     <script src="../bundles/ie.js"></script>
+
+     <![endif]-->
+
+</head>
+<body>
+    <!-- Page Wrapper-->
+    <section id="main-wrapper" class="theme-blue-full">
+
+        <!-- Top Header -->
+        <header id="header">
+            <!--logo start-->
+            <div class="brand">
+                <a href="Home.html" class="logo">
+                    <img src="../Images/logo-small.png">
+                    <span>Q</span>uantum
+                </a>
+            </div>
+            <!--logo end-->
+            <ul class="nav navbar-nav navbar-left">
+                <li class="toggle-navigation toggle-left">
+                    <button class="sidebar-toggle" id="toggle-left">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </li>
+                <li class="toggle-profile hidden-xs">
+                    <button type="button" class="btn btn-default" id="toggle-profile">
+                        <i class="icon-user"></i>
+                    </button>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown profile hidden-xs">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="meta">
+                            <span class="avatar">
+                                <img src="../Images/profile.jpg" onError="this.src = '../Images/profile.jpg'" class="img-circle" alt="">
+                            </span>
+                            <span class="text nomeUsuario"></span>
+                            <span class="caret"></span>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight" role="menu">
+                        <li>
+                            <span class="arrow top"></span>
+                            <h5>
+                                <span>100%</span>
+                                <small class="text-muted">Perfil Completo</small>
+                            </h5>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar progress-bar" style="width: 100%">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="MinhaConta.html">
+                                <span class="icon">
+                                    <i class="fa fa-user"></i>
+                                </span>Minha Conta
+                            </a>
+                        </li>
+                        <!--<li>
+                            <a href="AlterarSenha.html">
+                                <span class="icon">
+                                    <i class="fa fa-lock"></i>
+                                </span>Alterar Senha
+                            </a>
+                        </li>-->
+                    </ul>
+                </li>
+                <li class="toggle-fullscreen hidden-xs">
+                    <button type="button" class="btn btn-default expand" id="toggle-fullscreen">
+                        <i class="fa fa-expand"></i>
+                    </button>
+                </li>
+                <li class="toggle-navigation toggle-right">
+                    <button class="sidebar-toggle" id="toggle-right" onclick="signout()">
+                        <i class="fa fa-sign-out"></i>
+                    </button>
+                </li>
+            </ul>
+        </header>
+
+        <!-- Left Sidebar Navigation -->
+        <!--sidebar left start-->
+        <aside class="sidebar sidebar-left">
+            <div class="sidebar-profile">
+                <div class="avatar">
+                    <img class="img-circle profile-image" src="../Images/profile.jpg" onError="this.src = '../Images/profile.jpg'"  alt="profile">
+                    <i class="on border-dark animated bounceIn"></i>
+                </div>
+                <div class="profile-body dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><h4 class="nomeUsuario"><span class="caret"></span></h4></a>
+                    <small class="title perfilUsuario"></small>
+                    <ul class="dropdown-menu animated fadeInRight" role="menu">
+                        <li class="profile-progress">
+                            <h5>
+                                <span>100%</span>
+                                <small>Perfil Completo</small>
+                            </h5>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar progress-bar-primary" style="width: 100%">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="MinhaConta.html">
+                                <span class="icon">
+                                    <i class="fa fa-user"></i>
+                                </span>Minha Conta
+                            </a>
+                        </li>
+                        <!--<li>
+                            <a href="AlterarSenha.html">
+                                <span class="icon">
+                                    <i class="fa fa-lock"></i>
+                                </span>Alterar Senha
+                            </a>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+            <nav>
+                <h5 class="sidebar-header">Menu</h5>
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active open">
+                        <a href="Home.html" title="Início">
+                            <i class="fa fa-fw fa-home"></i> Início
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="../Tickets/Tickets.html" title="Tickets">
+                            <i class="fa fa-fw fa-tasks"></i> Tickets
+                        </a>
+                    </li>
+                    <li class="nav-dropdown so_adm ">
+                        <a href="#" title="Administrativo">
+                            <i class="fa fa-fw fa-cogs"></i> Administrativo
+                        </a>
+                        <ul class="nav-sub">
+                            <li class="">
+                                <a href="../Administrativo/Usuarios.html" title="Usuários">
+                                    Usuários
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <!--sidebar left end-->
+        <!-- Content wraper -->
+        <section class="main-content-wrapper">
+            <!-- Main view  -->
+
+            <div class="pageheader">
+                <h1>Início</h1>
+                <p class="description">Bem vindo ao Quantum</p>
+                <div class="breadcrumb-wrapper hidden-xs">
+                    <span class="label">Você está aqui:</span>
+                    <ol class="breadcrumb">
+                        <li class="active">Início</li>
+                    </ol>
+                </div>
+            </div>
+            <section id="main-content">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="panel panel-solid-success widget-mini">
+                                    <div class="panel-body">
+                                        <i class="icon-bar-chart"></i>
+                                        <span class="total text-center todos">0</span>
+                                        <span class="title text-center">Todos</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="panel widget-mini">
+                                    <div class="panel-body">
+                                        <i class="icon-envelope-open"></i>
+                                        <span class="total text-center Aberto">0</span>
+                                        <span class="title text-center">Abertos</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="panel widget-mini">
+                                    <div class="panel-body">
+                                        <i class="icon-support"></i>
+                                        <span class="total text-center Em_andamento">0</span>
+                                        <span class="title text-center">Em andamento</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="panel panel-solid-info widget-mini">
+                                    <div class="panel-body">
+                                        <i class="icon-envelope"></i>
+                                        <span class="total text-center Finalizado">0</span>
+                                        <span class="title text-center">Finalizados</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--Load these page level functions-->
+
+        </section>
+        <!-- /Content wraper-->
+
+    </section>
+    <!-- /Page Wrapper-->
+	<script src="../scripts/config.js"></script>
+    <script src="../bundles/jquery.js"></script>
+    <script src="../bundles/jquery.cookie.js"></script>
+    <script src="../bundles/bootstrap.js"></script>
+    <script src="../plugins/navgoco.js"></script>
+    <script src="../plugins/pace.js"></script>
+    <script src="../plugins/switchery.js"></script>
+    <script src="../bundles/app.js"></script>
+    <script src="../plugins/skycons.js"></script>
+    <script src="../plugins/daterangepicker.js"></script>
+    <script src="../scripts/home.js"></script>
+    <script src="../scripts/util.js"></script>
+    <script src="../services/ticket.js"></script>
+
+</body>
+
+
+</html>

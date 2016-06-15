@@ -1,0 +1,438 @@
+﻿<!DOCTYPE html>
+<html>
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets | Quantum</title>
+
+    <link href="../plugins/datatables.min.css" rel="stylesheet" />
+
+    <link href="../plugins/wysihtml5CSS.css" rel="stylesheet" />   
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css' />
+	
+	<link href="https://code.jquery.com/ui/1.10.4/themes/black-tie/jquery-ui.css" rel="stylesheet" type="text/css" />
+
+    <link href="../content/css.css" rel="stylesheet" />
+
+    <script src="../bundles/modernizr.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+     <script src="../bundles/ie.js"></script>
+
+     <![endif]-->
+
+	<style>
+		.Aberto { background-color: red; }
+		.Respondido { background-color: blue; }
+		
+		.ui-autocomplete {
+			z-index: 9999;
+		}
+	</style>
+</head>
+<body>
+    <!-- Page Wrapper-->
+    <section id="main-wrapper" class="theme-blue-full">
+
+        <!-- Top Header -->
+        <header id="header">
+            <!--logo start-->
+            <div class="brand">
+                <a href="../Pages/Home.html" class="logo">
+                    <img src="../Images/logo-small.png">
+                    <span>Q</span>uantum
+                </a>
+            </div>
+            <!--logo end-->
+            <ul class="nav navbar-nav navbar-left">
+                <li class="toggle-navigation toggle-left">
+                    <button class="sidebar-toggle" id="toggle-left">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </li>
+                <li class="toggle-profile hidden-xs">
+                    <button type="button" class="btn btn-default" id="toggle-profile">
+                        <i class="icon-user"></i>
+                    </button>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown profile hidden-xs">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="meta">
+                            <span class="avatar">
+                                <img src="../Images/profile.jpg" class="img-circle" alt="">
+                            </span>
+                            <span class="text nomeUsuario"></span>
+                            <span class="caret"></span>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight" role="menu">
+                        <li>
+                            <span class="arrow top"></span>
+                            <h5>
+                                <span>100%</span>
+                                <small class="text-muted">Perfil Completo</small>
+                            </h5>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar progress-bar" style="width: 100%">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="../Pages/MinhaConta.html">
+                                <span class="icon">
+                                    <i class="fa fa-user"></i>
+                                </span>Minha Conta
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="toggle-fullscreen hidden-xs">
+                    <button type="button" class="btn btn-default expand" id="toggle-fullscreen">
+                        <i class="fa fa-expand"></i>
+                    </button>
+                </li>
+                <li class="toggle-navigation toggle-right">
+                    <button class="sidebar-toggle" id="toggle-right" onclick="signout()">
+                        <i class="fa fa-sign-out"></i>
+                    </button>
+                </li>
+            </ul>
+        </header>
+
+        <!-- Left Sidebar Navigation -->
+        <!--sidebar left start-->
+        <aside class="sidebar sidebar-left">
+            <div class="sidebar-profile">
+                <div class="avatar">
+                    <img class="img-circle profile-image" src="../Images/profile.jpg" alt="profile">
+                    <i class="on border-dark animated bounceIn"></i>
+                </div>
+                <div class="profile-body dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><h4 class="nomeUsuario"><span class="caret"></span></h4></a>
+                    <small class="title perfilUsuario"></small>
+                    <ul class="dropdown-menu animated fadeInRight" role="menu">
+                        <li class="profile-progress">
+                            <h5>
+                                <span>100%</span>
+                                <small>Perfil Completo</small>
+                            </h5>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar progress-bar-primary" style="width: 100%">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="../Pages/MinhaConta.html">
+                                <span class="icon">
+                                    <i class="fa fa-user"></i>
+                                </span>Minha Conta
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <nav>
+                <h5 class="sidebar-header">Menu</h5>
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="">
+                        <a href="../Pages/Home.html" title="Início">
+                            <i class="fa fa-fw fa-home"></i> Início
+                        </a>
+                    </li>
+                    <li class="active open">
+                        <a href="Tickets.html" title="Tickets">
+                            <i class="fa fa-fw fa-tasks"></i> Tickets
+                        </a>
+                    </li>
+                    <li class="nav-dropdown so_adm">
+                        <a href="#" title="Administrativo">
+                            <i class="fa fa-fw fa-cogs"></i> Administrativo
+                        </a>
+                        <ul class="nav-sub">
+                            <li class="">
+                                <a href="../Administrativo/Usuarios.html" title="Usuários">
+                                    Usuários
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <!--sidebar left end-->
+        <!-- Content wraper -->
+        <section class="main-content-wrapper">
+            <!-- Main view  -->
+
+            <div class="pageheader">
+                <h1>Tickets</h1>
+                <div class="breadcrumb-wrapper hidden-xs">
+                    <span class="label">Você está aqui:</span>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="../Pages/Home.html">Início</a>
+                        </li>
+                        <li class="active">Tickets</li>
+                    </ol>
+                </div>
+            </div>
+            <section id="main-content" class="animated fadeInUp">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Meus Tickets</h3>
+                                <div class="actions pull-right">
+                                    <i class="fa fa-expand"></i>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+
+                                <div id="success" class="alert alert-success alert-dismissable" style="display:none;">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    O ticket <span class="MSGassuntoTicket"></span> foi criado com sucesso.
+                                </div>
+                                <div id="erro" class="alert alert-danger alert-dismissable" style="display:none;">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <strong>Atenção!</strong> Ocorreu um problema. Tente novamente.
+                                </div>								
+                                <div id="loader" style="display:none;">
+                                    <img src="../Images/loader.gif" />
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button class="btn btn-primary" onclick="$('#formModal').modal()">
+                                            Novo Ticket
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table id="example" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>                                                    
+                                                    <th>Assunto</th>
+                                                    <th>Usuário</th>
+                                                    <th>Categoria</th>
+                                                    <th>Status</th>
+                                                    <th>Última int.</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Assunto</th>
+                                                    <th>Usuário</th>
+                                                    <th>Categoria</th>
+                                                    <th>Status</th>
+                                                    <th>Data</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr class="repeat">
+                                                    <td class="field" data="codTicket"></td>                                                    
+                                                    <td class="field" data="strAssunto"></td>
+                                                    <td class="field" data="strNome"></td>
+                                                    <td class="field" data="strCategoria"></td>
+                                                    <td class="field" data="strStatus"></td>
+                                                    <td class="field" data="dtDataHora"></td>
+                                                    <td class="field" data="strDescricao" style="display:none;"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <!--Load these page level functions-->
+
+        </section>
+        <!-- /Content wraper-->
+
+    </section>
+    <!-- /Page Wrapper-->
+	<script src="../scripts/config.js"></script>	
+
+    <script src="../bundles/jquery.js"></script>
+    <script src="../bundles/jquery.cookie.js"></script>
+    <script src="../bundles/bootstrap.js"></script>
+    <script src="../plugins/datatables.min.js"></script>
+    <script src="../plugins/navgoco.js"></script>
+    <script src="../plugins/pace.js"></script>
+    <script src="../plugins/switchery.js"></script>
+    <script src="../bundles/app.js"></script>
+    <script src="../plugins/wysihtml5.js"></script>
+    <script src="../plugins/bootstrap3-wysihtml5.js"></script>
+
+    <script src="../scripts/LINQ_JS_MIN.js"></script>
+
+    <script src="../services/ticket.js"></script>
+    <script src="../services/usuario.js"></script>
+    <script src="../scripts/tickets.js"></script>
+    <script src="../scripts/util.js"></script>
+	
+	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="*"></script>
+
+    <!-- Form Modal -->
+    <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel_New"> Novo Ticket</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group linhaUsuario">
+                            <label for="usuario" class="col-sm-2 control-label">Usuário:</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="usuario" name="usuario" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Assunto" class="col-sm-2 control-label">Categoria:</label>
+                            <div class="col-sm-10">
+                                <select id="categoria" name="categoria" class="form-control">
+                                    <option value="Administrativo">Administrativo</option>
+                                    <option value="Coordenação">Coordenação</option>
+                                    <option value="Financeiro">Financeiro</option>
+                                    <option value="Secretaria">Secretaria</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="assunto" class="col-sm-2 control-label">Assunto:</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="assunto" name="assunto" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="descricao" class="col-sm-2 control-label">Descrição:</label>
+                            <div class="col-sm-10">
+                                <textarea id="descricao" name="descricao" class="textarea form-control" rows="10" cols="80" placeholder="Descreva o problema ..." style="width: 100%; height: 200px"></textarea>
+                            </div>
+                        </div>
+                        <!--<div class="form-group">
+                            <label for="anexo" class="col-sm-2 control-label">Anexo:</label>
+                            <div class="col-sm-10">
+                                <input type="file" id="exampleInputFile">
+                            </div>
+                        </div>-->
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" onClick="inserirTicket()">Criar Ticket</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Form Modal -->
+    <!-- Form Modal Acompanhamento -->
+    <div class="modal fade" id="formModalAcompanhamento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel"> Acompanhamento do Ticket #<span id="codTicket_Modal"></span></h4>
+                </div>
+                <div class="modal-body">
+                    <section id="main-content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <section class="panel">
+                                    <div class="panel-body profile-wrapper">
+                                        <div class="col-md-12">
+                                            <div class="profile-info">
+                                                <h1 id="Assunto_Modal"></h1>
+                                                <span id="NomeUsuario_Modal" class="text-muted"></span> em <span class="text-muted dataCriacao"></span>
+                                                <p id="Descricao_Modal"></p>
+                                                <!--<div class="connect">
+                                                    <button type="button" class="btn btn-primary btn-trans"><span class="fa fa-comments"></span> Anexo:</button>
+                                                </div>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-md-12 linhaAcompanhamento">
+                                <section class="panel">
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <div class="profile-info">
+                                                <form class="form-horizontal" role="form">
+                                                    <div class="form-group">
+                                                        <label for="categoriaModal" class="col-sm-2 control-label">Categoria:</label>
+                                                        <div class="col-sm-10">
+                                                            <select id="categoriaModal" name="categoria" class="form-control" onchange="salvaCategoria(this)">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="status" class="col-sm-2 control-label">Status:</label>
+                                                        <div class="col-sm-10">
+                                                            <select id="status" name="status" class="form-control" onchange="salvaStatus(this)">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-md-12">
+                                <section class="panel timeline-post">
+                                    <div class="panel-body">
+                                        <ul id="ulComentarios"></ul>
+                                    </div>
+                                </section>
+                                <section class="panel timeline-post-to">
+                                    <div class="panel-body">
+                                        <form role="form">
+                                            <textarea class="form-control" placeholder="Escreva seu comentário" id="Descricao_Modal1"></textarea>
+                                            <div class="row">
+                                                <!--<div class="col-sm-6">
+                                                        <a class="btn btn-sm btn-default"><i class="fa fa-camera"></i></a>
+                                                        <a class="btn btn-sm btn-default"><i class="fa fa-video-camera"></i></a>
+                                                        <a class="btn btn-sm btn-default"><i class="fa fa-music"></i></a>
+                                                        <a class="btn btn-sm btn-default"><i class="fa fa-map-marker"></i></a>
+                                                </div>-->
+                                                <div class="col-sm-12 text-right">
+                                                    <button type="button" class="btn btn-primary" onClick="inserirComentario()">Enviar</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Form Modal Acompanhamento -->
+
+</body>
+
+</html>
